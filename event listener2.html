@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid teal;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="add" >Add New</button>
+    <br>
+    <div>Hover over me</div>
+    <a href="www.masaischool.com">Masai website</a>
+</body>
+</html>
+
+<script>
+   var addBtn = document.getElementById('add')
+count = 1
+addBtn.addEventListener("click",function(){
+  var body = document.querySelector('body')
+  var div = document.createElement('div')
+  div.textContent = 'Product ' + count++
+  body.insertBefore(div,addBtn)
+})
+
+var aLink = document.querySelector('a')
+aLink.addEventListener("click",function(event){
+  event.preventDefault()
+    console.log(event.target)
+  var body = document.querySelector('body')
+  var p = document.createElement('p')
+  p.textContent = 'prevented from going to the website at ' + Date()
+  body.appendChild(p)
+})
+
+var div = document.querySelector('div')
+div.addEventListener("mouseover",function(e){
+  console.log(e.target)
+  var body = document.querySelector('body')
+  var p = document.createElement('p')
+  p.textContent = 'hovered over the div at ' + Date()
+  body.appendChild(p)
+})
+
+</script>
